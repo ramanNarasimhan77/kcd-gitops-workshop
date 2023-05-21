@@ -25,7 +25,7 @@ Ways of installation:
 
 ### Standard HA install
 
-Below command is taken from [Argocd Releases page](https://github.com/argoproj/argo-cd/releases/) for installing latest
+Below command is taken from [ArgoCD Releases page](https://github.com/argoproj/argo-cd/releases/) for installing latest
 ArgoCD release version in HA mode.
 
 ```shell 
