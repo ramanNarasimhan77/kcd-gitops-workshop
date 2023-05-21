@@ -100,9 +100,10 @@ networkpolicy.networking.k8s.io/argocd-notifications-controller-network-policy c
 networkpolicy.networking.k8s.io/argocd-redis-ha-proxy-network-policy created
 networkpolicy.networking.k8s.io/argocd-redis-ha-server-network-policy created
 networkpolicy.networking.k8s.io/argocd-repo-server-network-policy created
-networkpolicy.networking.k8s.io/argocd-server-network-policy created```
+networkpolicy.networking.k8s.io/argocd-server-network-policy created
+```
 
-Check if all services are running
+Verify that all services are running
 
 ```shell
 
