@@ -3,3 +3,10 @@ sealed-secrets:
     pullpolicy: Always
   networkpolicy:
     enabled: true
+
+
+# sealed-secrets:
+#   image:
+#     pullPolicy: Always
+#   networkPolicy:
+#     enabled: true
