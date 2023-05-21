@@ -21,7 +21,6 @@ Ways of installation:
   * Redis-HA
   * HAProxy
 
-### 
 
 ### Standard HA install
 
@@ -159,3 +158,4 @@ statefulset.apps/argocd-application-controller   1/1     12m
 statefulset.apps/argocd-redis-ha-server          3/3     12m
 
 ```
+
