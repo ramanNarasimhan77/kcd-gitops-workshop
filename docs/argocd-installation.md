@@ -101,3 +101,60 @@ networkpolicy.networking.k8s.io/argocd-redis-ha-proxy-network-policy created
 networkpolicy.networking.k8s.io/argocd-redis-ha-server-network-policy created
 networkpolicy.networking.k8s.io/argocd-repo-server-network-policy created
 networkpolicy.networking.k8s.io/argocd-server-network-policy created```
+
+Check if all services are running
+
+```shell
+
+$ kubectl get all -n argocd
+NAME                                                   READY   STATUS    RESTARTS   AGE
+pod/argocd-application-controller-0                    1/1     Running   0          12m
+pod/argocd-applicationset-controller-86fc5c85-xt9g4    1/1     Running   0          12m
+pod/argocd-dex-server-7f4689df5-vlhf2                  1/1     Running   0          12m
+pod/argocd-notifications-controller-59f78959c8-nm6cc   1/1     Running   0          12m
+pod/argocd-redis-ha-haproxy-7d7c895d48-bw86r           1/1     Running   0          12m
+pod/argocd-redis-ha-haproxy-7d7c895d48-d7zwq           1/1     Running   0          12m
+pod/argocd-redis-ha-haproxy-7d7c895d48-q8fmk           1/1     Running   0          12m
+pod/argocd-redis-ha-server-0                           3/3     Running   0          12m
+pod/argocd-redis-ha-server-1                           3/3     Running   0          9m26s
+pod/argocd-redis-ha-server-2                           3/3     Running   0          8m25s
+pod/argocd-repo-server-7f6b969896-6kcs9                1/1     Running   0          12m
+pod/argocd-repo-server-7f6b969896-tvmxq                1/1     Running   0          12m
+pod/argocd-server-59f64ffbbf-2r6gr                     1/1     Running   0          12m
+pod/argocd-server-59f64ffbbf-bwfx9                     1/1     Running   0          12m
+
+NAME                                              TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)                      AGE
+service/argocd-applicationset-controller          ClusterIP   10.102.217.12   <none>        7000/TCP,8080/TCP            12m
+service/argocd-dex-server                         ClusterIP   10.99.75.8      <none>        5556/TCP,5557/TCP,5558/TCP   12m
+service/argocd-metrics                            ClusterIP   10.98.9.172     <none>        8082/TCP                     12m
+service/argocd-notifications-controller-metrics   ClusterIP   10.96.81.132    <none>        9001/TCP                     12m
+service/argocd-redis-ha                           ClusterIP   None            <none>        6379/TCP,26379/TCP           12m
+service/argocd-redis-ha-announce-0                ClusterIP   10.96.91.211    <none>        6379/TCP,26379/TCP           12m
+service/argocd-redis-ha-announce-1                ClusterIP   10.97.231.19    <none>        6379/TCP,26379/TCP           12m
+service/argocd-redis-ha-announce-2                ClusterIP   10.109.34.29    <none>        6379/TCP,26379/TCP           12m
+service/argocd-redis-ha-haproxy                   ClusterIP   10.99.7.166     <none>        6379/TCP                     12m
+service/argocd-repo-server                        ClusterIP   10.107.191.8    <none>        8081/TCP,8084/TCP            12m
+service/argocd-server                             ClusterIP   10.107.242.55   <none>        80/TCP,443/TCP               12m
+service/argocd-server-metrics                     ClusterIP   10.98.249.120   <none>        8083/TCP                     12m
+
+NAME                                               READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/argocd-applicationset-controller   1/1     1            1           12m
+deployment.apps/argocd-dex-server                  1/1     1            1           12m
+deployment.apps/argocd-notifications-controller    1/1     1            1           12m
+deployment.apps/argocd-redis-ha-haproxy            3/3     3            3           12m
+deployment.apps/argocd-repo-server                 2/2     2            2           12m
+deployment.apps/argocd-server                      2/2     2            2           12m
+
+NAME                                                         DESIRED   CURRENT   READY   AGE
+replicaset.apps/argocd-applicationset-controller-86fc5c85    1         1         1       12m
+replicaset.apps/argocd-dex-server-7f4689df5                  1         1         1       12m
+replicaset.apps/argocd-notifications-controller-59f78959c8   1         1         1       12m
+replicaset.apps/argocd-redis-ha-haproxy-7d7c895d48           3         3         3       12m
+replicaset.apps/argocd-repo-server-7f6b969896                2         2         2       12m
+replicaset.apps/argocd-server-59f64ffbbf                     2         2         2       12m
+
+NAME                                             READY   AGE
+statefulset.apps/argocd-application-controller   1/1     12m
+statefulset.apps/argocd-redis-ha-server          3/3     12m
+
+```
