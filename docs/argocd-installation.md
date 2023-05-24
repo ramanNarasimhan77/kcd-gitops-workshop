@@ -24,7 +24,7 @@ Ways of installation:
 
 ### Standard HA install
 
-Below command is taken from [ArgoCD Releases page](https://github.com/argoproj/argo-cd/releases/) for installing latest
+Refer [ArgoCD Releases page](https://github.com/argoproj/argo-cd/releases/) for installing latest
 ArgoCD release version in HA mode.
 
 ```shell 
@@ -159,3 +159,39 @@ statefulset.apps/argocd-redis-ha-server          3/3     12m
 
 ```
 
+## Download CLI into local machine
+
+```shell 
+$ wget -O argocd https://github.com/argoproj/argo-cd/releases/download/v2.7.2/argocd-linux-amd64 
+--2023-05-24 16:16:32--  https://github.com/argoproj/argo-cd/releases/download/v2.7.2/argocd-linux-amd64
+Resolving github.com (github.com)... 20.207.73.82
+Connecting to github.com (github.com)|20.207.73.82|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://objects.githubusercontent.com/github-production-release-asset-2e65be/120896210/936aafb5-2560-4808-b66d-523afc0cd48e?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20230524%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230524T104633Z&X-Amz-Expires=300&X-Amz-Signature=11a94aa0db8e11daf0ecf753af589d32870071eb847214673b8a406ed5576e78&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=120896210&response-content-disposition=attachment%3B%20filename%3Dargocd-linux-amd64&response-content-type=application%2Foctet-stream [following]
+--2023-05-24 16:16:33--  https://objects.githubusercontent.com/github-production-release-asset-2e65be/120896210/936aafb5-2560-4808-b66d-523afc0cd48e?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20230524%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230524T104633Z&X-Amz-Expires=300&X-Amz-Signature=11a94aa0db8e11daf0ecf753af589d32870071eb847214673b8a406ed5576e78&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=120896210&response-content-disposition=attachment%3B%20filename%3Dargocd-linux-amd64&response-content-type=application%2Foctet-stream
+Resolving objects.githubusercontent.com (objects.githubusercontent.com)... 185.199.110.133, 185.199.109.133, 185.199.111.133, ...
+Connecting to objects.githubusercontent.com (objects.githubusercontent.com)|185.199.110.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 140367676 (134M) [application/octet-stream]
+Saving to: ‘argocd’
+
+argocd                                          100%[====================================================================================================>] 133.86M  34.4MB/s    in 4.1s
+
+$ chmod +x argocd
+
+$ sudo mv argocd /usr/local/bin/
+
+```
+
+Verify that argocd client is installed and available 
+
+```shell
+$ argocd version --client
+argocd: v2.7.2+cbee7e6
+  BuildDate: 2023-05-12T14:06:49Z
+  GitCommit: cbee7e6011407ed2d1066c482db74e97e0cc6bdb
+  GitTreeState: clean
+  GoVersion: go1.19.9
+  Compiler: gc
+  Platform: linux/amd64 
+```

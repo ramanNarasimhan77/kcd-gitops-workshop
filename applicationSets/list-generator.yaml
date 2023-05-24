@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: applicationset-list-generator
+  namespace: argocd
+spec:
+  generators:
+  - list:
+      elements:
+      - path: apps/guestbook 
+        appName: my-guestbook 
+      - path: apps/sealed-secrets 
+        appName: sealed-secrets-app
+      - path: apps/sync-waves
+        appName: sync-waves-app
+  template:
+    metadata:
+      name: '{{appName}}'
+    spec:
+      project: default 
+      source:
+        repoURL: https://github.com/ramanNarasimhan77/kcd-gitops-workshop.git
+        targetRevision: HEAD
+        path: {{path}}
+      destination:
+        server: 'https://kubernetes.default.svc'
+        namespace: guestbook
