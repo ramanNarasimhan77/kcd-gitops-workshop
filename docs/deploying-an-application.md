@@ -122,3 +122,6 @@ $ argocd app delete guestbook
 Are you sure you want to delete 'guestbook' and all its resources? [y/n] y
 application 'guestbook' deleted
 ```
+
+## Using UI
+
