@@ -1,12 +1,5 @@
 sealed-secrets:
   image:
-    pullpolicy: Always
-  networkpolicy:
+    pullPolicy: Always
+  networkPolicy:
     enabled: true
-
-
-# sealed-secrets:
-#   image:
-#     pullPolicy: Always
-#   networkPolicy:
-#     enabled: true
