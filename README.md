@@ -10,3 +10,5 @@
 Refer [ArgoCD Docs](https://argo-cd.readthedocs.io/en/stable/) for more information
 
 For more examples checkout [ArgoCD Example Apps Repo](https://github.com/argoproj/argocd-example-apps.git)
+
+Presentation shared during the session is available [here](presentation/)
