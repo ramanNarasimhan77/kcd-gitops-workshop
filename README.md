@@ -5,3 +5,6 @@
 3. [Acessing ArgoCD](docs/accessing-argocd.md)
 4. [Deploying an Application](docs/deploying-an-application.md)
 5. [Exploring ApplicationSets](docs/exploring-application-set.md)
+
+
+Refer [ArgoCD Docs](https://argo-cd.readthedocs.io/en/stable/) for more information
